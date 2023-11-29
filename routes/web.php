@@ -19,3 +19,5 @@ Route::get('/', function () {
 
 Route::get('/formBarang', [BarangController::class, 'index'])->name('formBarang');
 Route::post('/storeBarang', [BarangController::class, 'store'])->name('storeBarang');
+Route::get('/getBarang', [BarangController::class, 'getDataBarang'])->name('getDataBarang');
+Route::get('/viewBarang', [BarangController::class, 'viewBarang'])->name('viewBarang');

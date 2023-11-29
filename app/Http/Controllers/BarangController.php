@@ -4,10 +4,17 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Barang;
+use Yajra\DataTables\DataTables;
+
+
 class BarangController extends Controller
 {
     public function index(){
         return view('formBarang');
+    }
+
+    public function viewBarang(){
+        return view('viewBarang');
     }
 
     public function store(Request $request){
@@ -31,14 +38,11 @@ class BarangController extends Controller
     }
 
     public function getDataBarang(){
-        $dataTutorial = Barang::all();
-        return DataTables::of($dataTutorial)
-        ->addColumn('user_name', function ($tutorial) {
-            return $tutorial->user->name;
-        })
-        ->addColumn('action', function ($tutorial) {
+        $dataBarang = Barang::all();
+        return DataTables::of($dataBarang)
+        ->addColumn('action', function ($barang) {
             // Tambahkan tombol aksi sesuai kebutuhan Anda
-            return '<a href="'.route('tutorial.editPage', 'id='.$tutorial->id).'" class="btn btn-success">Edit</a><a class="hapusData btn btn-danger" data-id="'.$tutorial->id.'" data-url="'.route('tutorial.delete',$tutorial->id).'">Hapus</a>';
+            return '<a href="" class="btn btn-success">Edit</a><a class="hapusData btn btn-danger" data-id="" data-url="">Hapus</a>';
         })
         ->make(true);
     }

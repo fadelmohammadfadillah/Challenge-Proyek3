@@ -35,5 +35,27 @@
             </div>
             <!-- /.card-body -->
         </div>
+        <br>
+        <a href="{{url('/')}}" class="btn bg-primary text-white" >kembali</a>
     </body>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> 
+<script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.js"></script>
+<script>
+    $(document).ready(function() {
+        $('#viewBarang').DataTable({
+            processing: true,
+            serverSide: true,
+            ajax: '{!! route('getDataBarang') !!}',
+            columns: [
+                { data: 'kode_barang', name: 'kode_barang' },
+                { data: 'kode_tenan', name: 'kode_tenan' },
+                { data: 'nama_barang', name: 'nama_barang' },
+                { data: 'satuan', name: 'satuan' },
+                { data: 'harga_satuan', name: 'harga_satuan' },
+                { data: 'stok', name: 'stok' },
+                { data: 'action', name: 'action', orderable: false, searchable: false }
+            ]
+        });
+    });
+</script>
 </html>

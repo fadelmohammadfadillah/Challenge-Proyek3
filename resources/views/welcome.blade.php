@@ -18,6 +18,8 @@
         <div>
             <p>Input data barang</p>
             <a href="{{route('formBarang')}}" class="btn bg-primary text-white" >form input data barang</a>
+            <p>Table data barang</p>
+            <a href="{{route('viewBarang')}}" class="btn bg-primary text-white" >table barang</a>
         </div>
     </body>
 </html>
